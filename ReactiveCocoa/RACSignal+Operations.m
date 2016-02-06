@@ -566,7 +566,9 @@ static RACDisposable *subscribeForever (RACSignal *signal, void (^next)(id), voi
 					pendingSubscription = YES;
 				}
 
-				subscribeToSignal(nextSignal);
+				if (subscribeToSignal) {
+					subscribeToSignal(nextSignal);
+				}
 			}];
 		};
 
