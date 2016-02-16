@@ -587,7 +587,9 @@ static RACDisposable *subscribeForever (RACSignal *signal, void (^next)(id), voi
 				}
 			}
 
-			subscribeToSignal(signal);
+			if (subscribeToSignal) {
+				subscribeToSignal(signal);
+			}
 		} error:^(NSError *error) {
 			[subscriber sendError:error];
 		} completed:^{
